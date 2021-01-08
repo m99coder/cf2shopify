@@ -4,11 +4,16 @@
 // - https://vercel.com/guides/handling-node-request-body
 // - https://nodejs.org/ja/docs/guides/anatomy-of-an-http-transaction/#request-body
 
+const contentful = require('contentful')
+const client = contentful.createClient({
+  space: 'i9tbzaqi38hy',
+  accessToken: process.env.CF_CDA_ACCESS_TOKEN
+})
+
 // Be careful to define `application/json` as the content type of the triggering webhook,
 // otherwise the following code will not work
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   const { body } = req
-  console.log(process.env.CF_ACCESS_TOKEN)
-  console.log(body.fields.heroImage['en-US'].sys)
-  res.json(body)
+  const asset = await client.getAsset(body.fields.heroImage['en-US'].sys.id)
+  res.json(asset)
 }

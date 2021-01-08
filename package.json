@@ -1,0 +1,22 @@
+{
+  "name": "cf2shopify",
+  "version": "1.0.0",
+  "description": "Contentful-Shopify-Integration for blog posts using webhooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m99coder/cf2shopify.git"
+  },
+  "author": "Marco Lehmann <m99coder@gmail.com> (https://m99.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/m99coder/cf2shopify/issues"
+  },
+  "homepage": "https://github.com/m99coder/cf2shopify#readme",
+  "dependencies": {
+    "contentful": "^8.1.7"
+  }
+}
