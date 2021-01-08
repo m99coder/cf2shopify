@@ -6,16 +6,15 @@
 module.exports = (req, res) => {
   console.log(req)
 
-  let body = []
+  let body = ''
   req.on('data', (chunk) => {
-    body.push(chunk)
-  }).on('end', () => {
-    body = Buffer.concat(body).toString()
-    // at this point, `body` has the entire request body stored in it as a string
+    body += chunk.toString('utf8')
+  })
 
+  req.on('end', () => {
     console.log(body)
-
-    // ping pong
-    res.json(req)
+    let json = JSON.parse(body)
+    console.log(json)
+    res.json(json)
   })
 }
