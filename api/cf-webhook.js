@@ -8,6 +8,6 @@
 // otherwise the following code will not work
 module.exports = (req, res) => {
   const { body } = req
-  console.log(body.fields)
+  console.log(body.fields.heroImage['en-US'].sys)
   res.json(body)
 }
