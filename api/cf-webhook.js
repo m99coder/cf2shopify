@@ -8,6 +8,7 @@
 // otherwise the following code will not work
 module.exports = (req, res) => {
   const { body } = req
+  console.log(process.env.CF_ACCESS_TOKEN)
   console.log(body.fields.heroImage['en-US'].sys)
   res.json(body)
 }
